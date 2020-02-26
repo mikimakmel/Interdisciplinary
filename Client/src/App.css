@@ -1,16 +1,18 @@
 /* Header */
 
 .headerLink {
-  color: #0094da;
+  color: #ffffff;
+  font-weight: 400;
 }
 .headerLink:hover {
-  color: #ffffff;
+  color: #1AB188;
+  font-weight: 400;
 }
 .stickyHeader {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #282c34;
+  background-color: #24333C;
   height: 70px;
   align-content: center;
   z-index: 1001;
@@ -32,9 +34,19 @@
   margin: 0 auto;
 }
 
-
-
-
+/* Card */
+.CardBodyStyle {
+  background-color: #24333C;
+}
+.CardHeaderStyle {
+  color: #24333C;
+  font-weight: 700;
+  border: #24333C;
+  border-style: solid;
+}
+.greenColor {
+  color: #1AB188;
+}
 
 .App {
   text-align: center;
@@ -44,6 +56,15 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+.nav-link.active{
+  color: #1AB188 !important;
+}
+
+.nav-tabs .nav-link {
+  color: #1AB188 !important;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -13,7 +13,7 @@ class Charts extends React.Component {
         barChartData: [],
         currChart: 'Geo'
       }
-      
+
       this.prepareData = this.prepareData.bind(this);
       this.toggleCharts = this.toggleCharts.bind(this);
       this.renderGeoChart = this.renderGeoChart.bind(this);
@@ -113,7 +113,7 @@ class Charts extends React.Component {
         return(
             <div>
                 <Card>
-                    <Card.Header>
+                    <Card.Header className="CardBodyStyle">
                         <Tabs defaultActiveKey="first" id="uncontrolled-tab-example" onSelect={() => this.toggleCharts()}>
                             <Tab eventKey="first" title="Gas Emissions" />
                             <Tab eventKey="second" title="Life Expectancy" />

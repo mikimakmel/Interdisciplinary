@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 class Quiz extends React.Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             questions: this.props.data,
             questionIndex: 0,
@@ -108,9 +108,9 @@ class Quiz extends React.Component {
 
         return (
             <div className="quizContainer">
-                <Card className="Container">
+                <Card className="Container CardHeaderStyle">
                     <Card.Header>Quiz</Card.Header>
-                    <Card.Body>
+                    <Card.Body className="CardBodyStyle">
                         <div id="question">
                             <h4>Question {questionIndex}/{numberOfQuestions}</h4>
                             <p>{currQuestion}</p>

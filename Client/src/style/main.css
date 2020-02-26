@@ -6,7 +6,7 @@ body {
 }
 
 #question {
-    background-color: #0094da;
+    background-color: #1AB188;
     color: white;
     padding: 10px;
     text-align: center;
@@ -40,7 +40,7 @@ body {
 
 #answers li {
     background-color: #fff;
-    border: 2px solid #0094da;
+    border: 2px solid #1AB188;
     min-height: 70px;
     width: 48%;
     display: flex;
@@ -50,7 +50,7 @@ body {
 }
 
 #answers li span {
-    background-color: #0084da;
+    background-color: #1AB188;
     color: #fff;
     font-size: 30px;
     flex: 75px;
@@ -78,16 +78,16 @@ body {
 }
 
 #answers li.right {
-    border-color: #1ea55b;
-    color: #1ea55b;
+    border-color: #0094da;
+    color: #0094da;
 }
 
 #answers li.right span {
-    background-color: #1ea55b;
+    background-color: #0094da;
 }
 
 #answers li.right p {
-    color: #1ea55b;
+    color: #0094da;
 }
 
 #answers li.wrong {
@@ -109,9 +109,9 @@ body {
 }
 
 .fancy-btn {
-    border: 2px solid #0b0e21;
+    border: 2px solid #1AB188;
     border-radius: 0;
-    background-color: #0b0e21;
+    background-color: #1AB188;
     color: #fff;
     display: inline-block;
     font-size: 18px;
