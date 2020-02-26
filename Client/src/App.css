@@ -1,3 +1,41 @@
+/* Header */
+
+.headerLink {
+  color: #0094da;
+}
+.headerLink:hover {
+  color: #ffffff;
+}
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #282c34;
+  height: 70px;
+  align-content: center;
+  z-index: 1001;
+}
+
+/* Quiz */
+.quizContainer {
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.Container {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.chartsContainer {
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+
 .App {
   text-align: center;
 }

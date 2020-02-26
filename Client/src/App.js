@@ -1,19 +1,22 @@
 import React from 'react';
-import './App.css';
 import Quiz from './components/Quiz'
 import Charts from './components/Charts'
-
+import Header from './components/Header'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import './style/main.css'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       questionsList: [],
       lifeExpectancyList: [],
       gasEmissionsList: [],
       isQuizOver: false
     }
+
     this.fetchQuestions = this.fetchQuestions.bind(this);
     this.fetchGasEmissions = this.fetchGasEmissions.bind(this);
     this.fetchLifeExpectancy = this.fetchLifeExpectancy.bind(this);
@@ -83,13 +86,13 @@ class App extends React.Component {
       )
     }
     else {
-      // console.log(lifeExpectancyList)
       return(
-        <div className="App">
-          <header className="App-header">
-            <Quiz data={questionsList} handleFinishQuiz={this.handleFinishQuiz} />
-            {isQuizOver === true ? this.renderCharts() : this.renderCharts()}
-          </header>
+        <div>
+          <Header />
+          <div className="Container">
+              <Quiz data={questionsList} handleFinishQuiz={this.handleFinishQuiz} />
+              {isQuizOver === true ? this.renderCharts() : null}
+          </div>
         </div>
       )
     }

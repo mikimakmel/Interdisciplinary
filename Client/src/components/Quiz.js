@@ -1,10 +1,10 @@
 import React from 'react';
-// import Popup from 'Popup';
-// import Footer from 'Footer';
+import { Card } from 'react-bootstrap';
 
 class Quiz extends React.Component {
     constructor(props) {
         super(props);
+        
         this.state = {
             questions: this.props.data,
             questionIndex: 0,
@@ -12,25 +12,24 @@ class Quiz extends React.Component {
             showButton: false,
             questionAnswered: false,
             score: 0,
-            // displayPopup: 'flex',
             isAnswered: false,
-            classNames: ['', '', '', '']
+            classNames: ['', '', '', ''],
+            displayPopup: false
         }
         
         this.nextQuestion = this.nextQuestion.bind(this);
         this.handleShowButton = this.handleShowButton.bind(this);
-        this.handleStartQuiz = this.handleStartQuiz.bind(this);
         this.handleIncreaseScore = this.handleIncreaseScore.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
     }
 
     componentWillMount() {
-        let { questionIndex } = this.state;
+        const { questionIndex } = this.state;
         this.pushData(questionIndex);
     }
 
     pushData(questionIndex) {
-        let { questions } = this.state;
+        const { questions } = this.state;
 
         this.setState({
             currQuestion: questions[questionIndex].question,
@@ -41,15 +40,14 @@ class Quiz extends React.Component {
     }
 
     nextQuestion() {
-        let { questionIndex, numberOfQuestions, score } = this.state;
+        const { questionIndex, numberOfQuestions } = this.state;
 
         if(questionIndex === numberOfQuestions) {
-            // this.props.isQuizOver = true;
-            // console.log(this.props.isQuizOver)
-            this.props.handleFinishQuiz();
-            // this.setState({
-            //     displayPopup: 'flex'/////////////////////////
-            // });
+            this.setState({ 
+                displayPopup: true,
+                showButton: false,
+            })
+            
         } else {
             this.pushData(questionIndex);
             this.setState({
@@ -68,17 +66,8 @@ class Quiz extends React.Component {
         })
     }
 
-    handleStartQuiz() {
-        this.setState({
-            // displayPopup: 'none',
-            questionIndex: 1
-        });
-    }
-
     handleIncreaseScore() {
-        this.setState({
-            score: this.state.score + 1
-        });
+        this.setState({ score: this.state.score + 1 });
     }
 
     checkAnswer(e) {
@@ -105,18 +94,28 @@ class Quiz extends React.Component {
         }
     }
 
+    renderPopUp() {
+        return (
+            <div className="popup">
+                <h3>Score {this.state.score}/{this.state.numberOfQuestions}</h3>
+                <button className="fancy-btn" onClick={this.props.handleFinishQuiz}>Finish Quiz and See Stats</button>
+            </div>
+        )
+    }
+
     render() {
-        let { questionIndex, numberOfQuestions, currQuestion, answers, correct, showButton, questionAnswered, displayPopup, score, classNames} = this.state;
+        const { questionIndex, numberOfQuestions, currQuestion, answers, showButton, displayPopup, classNames} = this.state;
 
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-10 col-lg-offset-1">
+            <div className="quizContainer">
+                <Card className="Container">
+                    <Card.Header>Quiz</Card.Header>
+                    <Card.Body>
                         <div id="question">
                             <h4>Question {questionIndex}/{numberOfQuestions}</h4>
                             <p>{currQuestion}</p>
                         </div>
-                       
+                    
                         <div id="answers">
                             <ul>
                                 <li onClick={this.checkAnswer} className={classNames[0]} data-id="1"><span>A</span> <p>{answers[0]}</p></li>
@@ -127,10 +126,11 @@ class Quiz extends React.Component {
                         </div>
 
                         <div id="submit">
-                            {showButton ? <button className="fancy-btn" onClick={this.nextQuestion} >{questionIndex===numberOfQuestions ? 'Finish quiz' : 'Next question'}</button> : null}
+                            {showButton ? <button className="fancy-btn" onClick={this.nextQuestion} >Next question</button> : null}
+                            {displayPopup ? this.renderPopUp() : null}
                         </div>
-                    </div>
-                </div>
+                    </Card.Body>
+                </Card>
             </div>
         );
     }
