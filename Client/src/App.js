@@ -9,7 +9,7 @@ import './style/main.css'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       questionsList: [],
       lifeExpectancyList: [],
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   fetchQuestions() {
-    const url = `http://localhost:3000/getAllQuestions`
+    const url = `https://interdisciplinary.herokuapp.com/getAllQuestions`
     const options = { method: 'GET', headers: { 'Content-Type': 'application/json' } }
     const request = new Request(url, options)
 
@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   fetchLifeExpectancy() {
-    const url = `http://localhost:3000/getAllLifes`
+    const url = `https://interdisciplinary.herokuapp.com/getAllLifes`
     const options = { method: 'GET', headers: { 'Content-Type': 'application/json' } }
     const request = new Request(url, options)
 
@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   fetchGasEmissions() {
-    const url = `http://localhost:3000/getAllEmissions`
+    const url = `https://interdisciplinary.herokuapp.com/getAllEmissions`
     const options = { method: 'GET', headers: { 'Content-Type': 'application/json' } }
     const request = new Request(url, options)
 
